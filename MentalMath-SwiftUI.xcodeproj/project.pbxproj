@@ -14,6 +14,9 @@
 		24A2ACA0271FC1D200C29E5C /* MentalMath_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2AC9F271FC1D200C29E5C /* MentalMath_SwiftUITests.swift */; };
 		24A2ACAA271FC1D200C29E5C /* MentalMath_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACA9271FC1D200C29E5C /* MentalMath_SwiftUIUITests.swift */; };
 		24A2ACAC271FC1D200C29E5C /* MentalMath_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACAB271FC1D200C29E5C /* MentalMath_SwiftUIUITestsLaunchTests.swift */; };
+		24A2ACB92720595C00C29E5C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACB82720595C00C29E5C /* AddView.swift */; };
+		24A2ACBD27216D5A00C29E5C /* AddResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACBC27216D5A00C29E5C /* AddResultView.swift */; };
+		24A2ACBF2721A56000C29E5C /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACBE2721A55F00C29E5C /* LevelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		24A2ACA5271FC1D200C29E5C /* MentalMath-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MentalMath-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A2ACA9271FC1D200C29E5C /* MentalMath_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalMath_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		24A2ACAB271FC1D200C29E5C /* MentalMath_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalMath_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		24A2ACB82720595C00C29E5C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		24A2ACBC27216D5A00C29E5C /* AddResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResultView.swift; sourceTree = "<group>"; };
+		24A2ACBE2721A55F00C29E5C /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			children = (
 				24A2AC8E271FC1D000C29E5C /* MentalMath_SwiftUIApp.swift */,
 				24A2AC90271FC1D000C29E5C /* ContentView.swift */,
+				24A2ACB82720595C00C29E5C /* AddView.swift */,
+				24A2ACBC27216D5A00C29E5C /* AddResultView.swift */,
+				24A2ACBE2721A55F00C29E5C /* LevelView.swift */,
 				24A2AC92271FC1D200C29E5C /* Assets.xcassets */,
 				24A2AC94271FC1D200C29E5C /* Preview Content */,
 			);
@@ -258,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A2AC91271FC1D000C29E5C /* ContentView.swift in Sources */,
+				24A2ACBD27216D5A00C29E5C /* AddResultView.swift in Sources */,
 				24A2AC8F271FC1D000C29E5C /* MentalMath_SwiftUIApp.swift in Sources */,
+				24A2ACB92720595C00C29E5C /* AddView.swift in Sources */,
+				24A2ACBF2721A56000C29E5C /* LevelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
