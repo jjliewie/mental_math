@@ -13,6 +13,8 @@ public var levels: Array = ["1"]
 struct ContentView: View {
     
     @State private var showSheet = false
+    @State private var showLevel = false
+
     
     var body: some View {
             ZStack{
@@ -25,7 +27,9 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        self.showLevel = true
+                    }) {
                     Text("Level: " + String(level))
                         .fontWeight(.bold)
                         .font(.title)
@@ -39,6 +43,9 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.orange, lineWidth: 5)
                         )
+                    }
+                    .fullScreenCover(isPresented: $showLevel) {
+                        LevelView()
                     }
                     .padding(30)
                     .padding(.bottom, 50)

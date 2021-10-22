@@ -130,14 +130,19 @@ struct AddView: View {
             
         }
         else if(level == 4){
-            self.randomInt1 = Int.random(in: 20..<40)
-            self.randomInt2 = Int.random(in: 20..<40)
+            self.randomInt1 = Int.random(in: 10..<50)
+            self.randomInt2 = Int.random(in: 10..<50)
             
         }
-        else{
-            self.randomInt1 = Int.random(in: 25..<50)
-            self.randomInt2 = Int.random(in: 25..<50)
+        else if(level == 5){
+            self.randomInt1 = Int.random(in: 10..<70)
+            self.randomInt2 = Int.random(in: 10..<70)
             
+        }
+        
+        else{
+            self.randomInt1 = Int.random(in: 10..<99)
+            self.randomInt2 = Int.random(in: 10..<99)
         }
         
         
@@ -155,6 +160,7 @@ struct AddView: View {
                     
                     Button(action: {
                         self.showSheet = true
+                        
                     }) {
                     Text("Back")
                         .fontWeight(.bold)
@@ -169,18 +175,21 @@ struct AddView: View {
                             .stroke(Color.white, lineWidth: 3)
                         )
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                     .fullScreenCover(isPresented: $showSheet) {
                         ContentView()
+                            
                     }
-                    .padding(.horizontal, 20)
-                        .padding(.top, 20)
+                    
                     
                     Spacer()
                     
+                    
                     Text(String(randomInt1) + " + " + String(randomInt2))
-                        .font(.system(size: 55, weight: .bold))
+                        .font(.system(size: 45, weight: .bold))
                         .foregroundColor(.white)
-                        .padding(.horizontal, 40)
+                        .padding(.trailing, 50)
                         .padding(.top, 40)
                     
                     

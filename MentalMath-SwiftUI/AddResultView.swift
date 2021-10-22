@@ -54,7 +54,6 @@ struct AddResultView: View {
                 
                 if(bool_add){
                     
-                    
                     Text("Your answer is correct")
                         .fontWeight(.bold)
                         .font(.title)
