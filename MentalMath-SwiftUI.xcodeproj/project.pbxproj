@@ -17,6 +17,12 @@
 		24A2ACB92720595C00C29E5C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACB82720595C00C29E5C /* AddView.swift */; };
 		24A2ACBD27216D5A00C29E5C /* AddResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACBC27216D5A00C29E5C /* AddResultView.swift */; };
 		24A2ACBF2721A56000C29E5C /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACBE2721A55F00C29E5C /* LevelView.swift */; };
+		24A2ACC12722AC6600C29E5C /* SubtractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACC02722AC6600C29E5C /* SubtractView.swift */; };
+		24A2ACC32722B19E00C29E5C /* SubtractResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACC22722B19E00C29E5C /* SubtractResultView.swift */; };
+		24A2ACC52722B33800C29E5C /* MultiplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACC42722B33800C29E5C /* MultiplyView.swift */; };
+		24A2ACC72722B4F900C29E5C /* MultiplyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACC62722B4F900C29E5C /* MultiplyResultView.swift */; };
+		24A2ACC92722B64B00C29E5C /* DivideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACC82722B64B00C29E5C /* DivideView.swift */; };
+		24A2ACCB2722B65A00C29E5C /* DivideResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A2ACCA2722B65A00C29E5C /* DivideResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,12 @@
 		24A2ACB82720595C00C29E5C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		24A2ACBC27216D5A00C29E5C /* AddResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResultView.swift; sourceTree = "<group>"; };
 		24A2ACBE2721A55F00C29E5C /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		24A2ACC02722AC6600C29E5C /* SubtractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractView.swift; sourceTree = "<group>"; };
+		24A2ACC22722B19E00C29E5C /* SubtractResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractResultView.swift; sourceTree = "<group>"; };
+		24A2ACC42722B33800C29E5C /* MultiplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyView.swift; sourceTree = "<group>"; };
+		24A2ACC62722B4F900C29E5C /* MultiplyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyResultView.swift; sourceTree = "<group>"; };
+		24A2ACC82722B64B00C29E5C /* DivideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideView.swift; sourceTree = "<group>"; };
+		24A2ACCA2722B65A00C29E5C /* DivideResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +115,13 @@
 				24A2AC8E271FC1D000C29E5C /* MentalMath_SwiftUIApp.swift */,
 				24A2AC90271FC1D000C29E5C /* ContentView.swift */,
 				24A2ACB82720595C00C29E5C /* AddView.swift */,
+				24A2ACC42722B33800C29E5C /* MultiplyView.swift */,
+				24A2ACC62722B4F900C29E5C /* MultiplyResultView.swift */,
 				24A2ACBC27216D5A00C29E5C /* AddResultView.swift */,
+				24A2ACC82722B64B00C29E5C /* DivideView.swift */,
+				24A2ACCA2722B65A00C29E5C /* DivideResultView.swift */,
+				24A2ACC02722AC6600C29E5C /* SubtractView.swift */,
+				24A2ACC22722B19E00C29E5C /* SubtractResultView.swift */,
 				24A2ACBE2721A55F00C29E5C /* LevelView.swift */,
 				24A2AC92271FC1D200C29E5C /* Assets.xcassets */,
 				24A2AC94271FC1D200C29E5C /* Preview Content */,
@@ -266,11 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A2ACC52722B33800C29E5C /* MultiplyView.swift in Sources */,
+				24A2ACC92722B64B00C29E5C /* DivideView.swift in Sources */,
+				24A2ACC12722AC6600C29E5C /* SubtractView.swift in Sources */,
 				24A2AC91271FC1D000C29E5C /* ContentView.swift in Sources */,
+				24A2ACCB2722B65A00C29E5C /* DivideResultView.swift in Sources */,
+				24A2ACC72722B4F900C29E5C /* MultiplyResultView.swift in Sources */,
 				24A2ACBD27216D5A00C29E5C /* AddResultView.swift in Sources */,
 				24A2AC8F271FC1D000C29E5C /* MentalMath_SwiftUIApp.swift in Sources */,
 				24A2ACB92720595C00C29E5C /* AddView.swift in Sources */,
 				24A2ACBF2721A56000C29E5C /* LevelView.swift in Sources */,
+				24A2ACC32722B19E00C29E5C /* SubtractResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

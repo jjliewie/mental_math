@@ -12,7 +12,10 @@ public var levels: Array = ["1"]
 
 struct ContentView: View {
     
-    @State private var showSheet = false
+    @State private var showAdd = false
+    @State private var showSubtract = false
+    @State private var showMultiply = false
+    @State private var showDivide = false
     @State private var showLevel = false
 
     
@@ -67,7 +70,7 @@ struct ContentView: View {
                             Spacer()
                         
                         Button(action: {
-                            showSheet = true
+                            showAdd = true
                         }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.white)
@@ -79,13 +82,13 @@ struct ContentView: View {
                                         .fill(Color.orange)
                                     )
                         }
-                        .fullScreenCover(isPresented: $showSheet, content: {
+                        .fullScreenCover(isPresented: $showAdd, content: {
                             AddView()
-                                .animation(.easeInOut)
-                                .transition(.move(edge: .bottom))
                         })
                             
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Button(action: {
+                            showSubtract = true
+                        }) {
                                 Image(systemName: "minus")
                                     .foregroundColor(.white)
                                     .font(.system(size: 25, weight: .bold))
@@ -96,9 +99,14 @@ struct ContentView: View {
                                         .fill(Color.orange)
                                     )
                         }
+                        .fullScreenCover(isPresented: $showSubtract, content: {
+                            SubtractView()
+                        })
 
                             
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Button(action: {
+                            showMultiply = true
+                        }) {
                                 Image(systemName: "multiply")
                                     .foregroundColor(.white)
                                     .font(.system(size: 25, weight: .bold))
@@ -109,9 +117,14 @@ struct ContentView: View {
                                         .fill(Color.orange)
                                     )
                         }
+                        .fullScreenCover(isPresented: $showMultiply, content: {
+                            MultiplyView()
+                        })
                             
                             
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Button(action: {
+                            showDivide = true
+                        }) {
                                 Image(systemName: "divide")
                                     .foregroundColor(.white)
                                     .font(.system(size: 25, weight: .bold))
@@ -122,6 +135,9 @@ struct ContentView: View {
                                         .fill(Color.orange)
                                     )
                         }
+                        .fullScreenCover(isPresented: $showDivide, content: {
+                            DivideView()
+                        })
                             
                             Spacer()
                             

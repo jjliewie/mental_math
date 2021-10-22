@@ -1,5 +1,5 @@
 //
-//  AddView.swift
+//  MultiplyView.swift
 //  MentalMath-SwiftUI
 //
 //  Created by julie rhee on 2021/10/20.
@@ -7,102 +7,11 @@
 
 import SwiftUI
 
-public var bool_add = false
-public var answer_add: Int = -1
-public var theme: Color = Color.white
-public var question_add = ""
-
-struct KeyPadButton: View {
-    var key: String
-
-    var body: some View {
-        Button(action: { self.action(self.key) }) {
-            Color.clear
-                .overlay(Text(key))
-                .foregroundColor(.white)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                    .fill(theme)
-                )
-        }
-        .padding(5)
-    }
-
-    enum ActionKey: EnvironmentKey {
-        static var defaultValue: (String) -> Void { { _ in } }
-    }
-
-    @Environment(\.keyPadButtonAction) var action: (String) -> Void
-}
-
-extension EnvironmentValues {
-    var keyPadButtonAction: (String) -> Void {
-        get { self[KeyPadButton.ActionKey.self] }
-        set { self[KeyPadButton.ActionKey.self] = newValue }
-    }
-}
-
-struct KeyPadRow: View {
-    var keys: [String]
-
-    var body: some View {
-        HStack {
-            ForEach(keys, id: \.self) { key in
-                KeyPadButton(key: key)
-            }
-        }
-    }
-}
+public var bool_mul = false
+public var answer_mul: Int = -1
 
 
-struct KeyPad: View {
-    @Binding var string: String
-
-    var body: some View {
-        VStack {
-            KeyPadRow(keys: ["1", "2", "3"])
-            KeyPadRow(keys: ["4", "5", "6"])
-            KeyPadRow(keys: ["7", "8", "9"])
-            KeyPadRow(keys: ["0", "⌫", "AC"])
-        }.environment(\.keyPadButtonAction, self.keyWasPressed(_:))
-    }
-
-    private func keyWasPressed(_ key: String) {
-        switch key {
-        case "AC":
-            string = "0"
-        case "⌫":
-            string.removeLast()
-            if string.isEmpty { string = "0" }
-        case _ where string == "0": string = key
-        default: string += key
-        }
-    }
-}
-
-extension View {
-    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
-        NavigationView {
-            ZStack {
-                self
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
-
-                NavigationLink(
-                    destination: view
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true),
-                    isActive: binding
-                ) {
-                    EmptyView()
-                }
-            }
-        }
-    }
-}
-
-
-struct AddView: View {
+struct MultiplyView: View {
 
     @State var randomInt1 : Int
     
@@ -112,41 +21,41 @@ struct AddView: View {
     
     @State private var showSheet = false
     @State private var showResult = false
-        
+    
     
     init(){
         
-        theme = Color.purple
+        theme = Color.red
         
         if(level == 1){
-            self.randomInt1 = Int.random(in: 1..<10)
-            self.randomInt2 = Int.random(in: 1..<10)
+            self.randomInt1 = Int.random(in: 1..<3)
+            self.randomInt2 = Int.random(in: 1..<9)
         }
         
         else if(level == 2){
-            self.randomInt1 = Int.random(in: 10..<15)
-            self.randomInt2 = Int.random(in: 5..<15)
+            self.randomInt1 = Int.random(in: 1..<5)
+            self.randomInt2 = Int.random(in: 1..<5)
             
         }
         else if(level == 3){
-            self.randomInt1 = Int.random(in: 10..<20)
-            self.randomInt2 = Int.random(in: 10..<20)
+            self.randomInt1 = Int.random(in: 1..<9)
+            self.randomInt2 = Int.random(in: 1..<9)
             
         }
         else if(level == 4){
-            self.randomInt1 = Int.random(in: 10..<50)
-            self.randomInt2 = Int.random(in: 10..<50)
+            self.randomInt1 = Int.random(in: 1..<12)
+            self.randomInt2 = Int.random(in: 1..<12)
             
         }
         else if(level == 5){
-            self.randomInt1 = Int.random(in: 10..<70)
-            self.randomInt2 = Int.random(in: 10..<70)
+            self.randomInt1 = Int.random(in: 1..<20)
+            self.randomInt2 = Int.random(in: 1..<20)
             
         }
         
         else{
-            self.randomInt1 = Int.random(in: 10..<99)
-            self.randomInt2 = Int.random(in: 10..<99)
+            self.randomInt1 = Int.random(in: 1..<30)
+            self.randomInt2 = Int.random(in: 1..<30)
         }
         
         
@@ -155,7 +64,7 @@ struct AddView: View {
     var body: some View {
         
         ZStack{
-            LinearGradient(colors: [.purple, .white], startPoint: .topLeading, endPoint: .bottomLeading)
+            LinearGradient(colors: [.red, .white], startPoint: .topLeading, endPoint: .bottomLeading)
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
@@ -172,7 +81,7 @@ struct AddView: View {
                         .padding(20)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.purple)
+                                .fill(Color.red)
                         )
                         .overlay(
                         RoundedRectangle(cornerRadius: 20)
@@ -190,7 +99,7 @@ struct AddView: View {
                     Spacer()
                     
                     
-                    Text(String(randomInt1) + " + " + String(randomInt2))
+                    Text(String(randomInt1) + " × " + String(randomInt2))
                         .font(.system(size: 45, weight: .bold))
                         .foregroundColor(.white)
                         .padding(.trailing, 50)
@@ -201,40 +110,39 @@ struct AddView: View {
                 
                 VStack {
                         HStack {
-                            
                             Button(action: {
                                 
                                 if(level == 1){
-                                    self.randomInt1 = Int.random(in: 1..<10)
-                                    self.randomInt2 = Int.random(in: 1..<10)
+                                    self.randomInt1 = Int.random(in: 1..<3)
+                                    self.randomInt2 = Int.random(in: 1..<9)
                                 }
                                 
                                 else if(level == 2){
-                                    self.randomInt1 = Int.random(in: 10..<15)
-                                    self.randomInt2 = Int.random(in: 5..<15)
+                                    self.randomInt1 = Int.random(in: 1..<5)
+                                    self.randomInt2 = Int.random(in: 1..<5)
                                     
                                 }
                                 else if(level == 3){
-                                    self.randomInt1 = Int.random(in: 10..<20)
-                                    self.randomInt2 = Int.random(in: 10..<20)
+                                    self.randomInt1 = Int.random(in: 1..<9)
+                                    self.randomInt2 = Int.random(in: 1..<9)
                                     
                                 }
                                 else if(level == 4){
-                                    self.randomInt1 = Int.random(in: 10..<50)
-                                    self.randomInt2 = Int.random(in: 10..<50)
+                                    self.randomInt1 = Int.random(in: 1..<12)
+                                    self.randomInt2 = Int.random(in: 1..<12)
                                     
                                 }
                                 else if(level == 5){
-                                    self.randomInt1 = Int.random(in: 10..<70)
-                                    self.randomInt2 = Int.random(in: 10..<70)
+                                    self.randomInt1 = Int.random(in: 1..<20)
+                                    self.randomInt2 = Int.random(in: 1..<20)
                                     
                                 }
                                 
                                 else{
-                                    self.randomInt1 = Int.random(in: 10..<99)
-                                    self.randomInt2 = Int.random(in: 10..<99)
+                                    self.randomInt1 = Int.random(in: 1..<30)
+                                    self.randomInt2 = Int.random(in: 1..<30)
                                 }
-                                
+
                             }) {
                             Text("Skip")
                                 .fontWeight(.bold)
@@ -243,7 +151,7 @@ struct AddView: View {
                                 .font(.body)
                                 .background(
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.purple)
+                                        .fill(Color.red)
                                 )
                                 .overlay(
                                 RoundedRectangle(cornerRadius: 20)
@@ -252,16 +160,11 @@ struct AddView: View {
                             }
                             .padding(.leading, 8)
                             Spacer()
-                            
                             Text(string)
                                 .font(.system(size: 50, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 35)
-                            
-                            
                         }.padding([.leading, .trailing])
-                    
-                    
                         KeyPad(string: $string)
                             .padding(20)
                             .padding(.horizontal, 5)
@@ -271,16 +174,16 @@ struct AddView: View {
                 
                 Button(action: {
                     self.showResult = true
-                    answer_add = randomInt1 + randomInt2
-                    if(answer_add == Int(string)){
-                        bool_add = true
+                    answer_mul = randomInt1 * randomInt2
+                    if(answer_mul == Int(string)){
+                        bool_mul = true
                     }
                     
                 }) {
                     Text("Submit")
                         .fontWeight(.bold)
                         .font(.title)
-                        .foregroundColor(.purple)
+                        .foregroundColor(.red)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 20)
@@ -288,10 +191,10 @@ struct AddView: View {
                         )
                         .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.purple, lineWidth: 5)
+                            .stroke(Color.red, lineWidth: 5)
                         )
                 }.fullScreenCover(isPresented: $showResult) {
-                    AddResultView()
+                    MultiplyResultView()
                 }
                 
                 Spacer()
@@ -302,8 +205,9 @@ struct AddView: View {
     }
 }
 
-struct AddView_Previews: PreviewProvider {
+struct MultiplyView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView()
+        MultiplyView()
 }
 }
+
